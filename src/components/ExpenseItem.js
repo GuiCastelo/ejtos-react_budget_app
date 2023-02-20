@@ -4,7 +4,7 @@ import { TiDelete } from "react-icons/ti";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 
 const ExpenseItem = (props) => {
-    const { dispatch } = useContext(AppContext);
+    const { currency, dispatch } = useContext(AppContext);
 
     const handleDeleteExpense = () => {
         dispatch({
@@ -40,7 +40,7 @@ const ExpenseItem = (props) => {
     return (
         <tr>
             <td>{props.name}</td>
-            <td>{props.cost}</td>
+            <td>{currency}{props.cost}</td>
             <td><AiFillPlusCircle color="green" size='2em' onClick={e => increaseAllocation(props.name)}>+</AiFillPlusCircle></td>
             <td><AiFillMinusCircle color="red" size='2em' onClick={e => decreaseAllocation(props.name)}>-</AiFillMinusCircle></td>
             <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
